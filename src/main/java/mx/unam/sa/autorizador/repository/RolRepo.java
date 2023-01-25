@@ -6,6 +6,7 @@ package mx.unam.sa.autorizador.repository;
 
 
 import java.util.Set;
+import mx.unam.sa.autorizador.controllers.dtos.RolDTO;
 import mx.unam.sa.autorizador.entities.Rol;
 import mx.unam.sa.autorizador.entities.SistEstrategico;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,4 +19,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RolRepo extends JpaRepository<Rol,Integer> {
     Set<Rol> findBySistema(SistEstrategico sistema);
+//    Set<RolDTO> findBySistema(SistEstrategico sistema);
 }
