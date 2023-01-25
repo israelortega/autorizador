@@ -39,7 +39,8 @@ public class Area implements Serializable {
     String ipReg;
     @Column(name = "vcRfcReg", length=13, nullable = false)
     String rfcReg;
-    @Column(name = "dtFecReg", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "dtFecReg", 
+            columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     Date fecReg = new Date();  
     @Column(name = "siStatus")
     Short status;

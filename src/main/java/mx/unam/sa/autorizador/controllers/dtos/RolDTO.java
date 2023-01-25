@@ -5,7 +5,9 @@ package mx.unam.sa.autorizador.controllers.dtos;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  *
@@ -13,6 +15,8 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@ToString
+@NoArgsConstructor
 public class RolDTO {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -20,5 +24,14 @@ public class RolDTO {
     String rol;
     String descripcion;
     int status;
+
+    public RolDTO(Integer idRol, String rol, String descripcion, int status) {
+        this.idRol = idRol;
+        this.rol = rol;
+        this.descripcion = descripcion;
+        this.status = status;
+    }
+    
+    
 
 }

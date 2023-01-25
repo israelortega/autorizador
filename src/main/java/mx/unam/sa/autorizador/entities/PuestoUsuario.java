@@ -31,7 +31,4 @@ public class PuestoUsuario {
     Integer numEmp;
     @Column(name = "idPuesto")
     Integer idPuesto;
-
-    
-    
 }

@@ -11,5 +11,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author israel1971
  */
 public interface SistEstrategicoRepo extends JpaRepository<SistEstrategico,Integer>{
-    
 }
