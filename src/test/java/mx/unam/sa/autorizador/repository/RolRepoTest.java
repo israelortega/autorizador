@@ -3,7 +3,6 @@
  */
 package mx.unam.sa.autorizador.repository;
 
-
 import java.util.Optional;
 import mx.unam.sa.autorizador.entities.SistEstrategico;
 import org.junit.jupiter.api.Test;
@@ -20,7 +19,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class RolRepoTest {
 
     Logger logger = LoggerFactory.getLogger(RolRepoTest.class);
-    
+
     @Autowired
     RolRepo rolRepo;
 
@@ -31,7 +30,7 @@ public class RolRepoTest {
     }
 
     @Test
-    public void testFindBySistema() {
+    void testFindBySistema() {
         logger.info("----testFindBySistema");
         Optional<SistEstrategico> sistemaOpt = sistEstrategicoRepo.findById(1);
 

@@ -58,7 +58,8 @@ public class SistEstrategico {
     @Temporal(jakarta.persistence.TemporalType.TIMESTAMP)
     Date fecReg = new Date();
 
-    @OneToMany(mappedBy = "sistema", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "sistema", fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL)
     private Set<Rol> roles;
 
     public void addRol(Rol rol) {
@@ -71,8 +72,8 @@ public class SistEstrategico {
         rol.setSistema(null);
     }
 
-    public SistEstrategico(Integer idSistema, String sistema, String descripcion, String url, 
-            Date fechaInicio, Date fechaFin, String ipReg, String rfcReg) {
+    public SistEstrategico(Integer idSistema, String sistema, String descripcion,
+            String url, Date fechaInicio, Date fechaFin, String ipReg, String rfcReg) {
         this.idSistema = idSistema;
         this.sistema = sistema;
         this.descripcion = descripcion;
@@ -84,8 +85,8 @@ public class SistEstrategico {
         this.rfcReg = rfcReg;
     }
 
-    public SistEstrategico(String sistema, String descripcion, String url, Date fechaInicio, 
-            Date fechaFin, String ipReg, String rfcReg) {
+    public SistEstrategico(String sistema, String descripcion, String url,
+            Date fechaInicio, Date fechaFin, String ipReg, String rfcReg) {
         this.sistema = sistema;
         this.descripcion = descripcion;
         this.url = url;

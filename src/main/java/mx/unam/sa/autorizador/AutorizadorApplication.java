@@ -41,9 +41,9 @@ public class AutorizadorApplication {
             sistEstrategicoRepo.save(new SistEstrategico(2, "Sistema 2", "Sistema de DGPe", "", null, null, "127.0.0.1", "808093"));
             sistEstrategicoRepo.save(new SistEstrategico("Sistema ?", "Sitema de Obras", "", null, null, "127.0.0.1", "808093"));
 
-            rolRepo.save(new Rol(1, "usuario", "Usuario", "U", "127.0.0.1", "808093", 1, sistema1));
-            rolRepo.save(new Rol(2, "admin", "Administrador", "A", "127.0.0.1", "808093", 1, sistema1));
-            rolRepo.save(new Rol(3, "lectura", "Solo tiene permisos de lectura", "L", "127.0.0.1", "808093", 1, sistema1));
+            rolRepo.save(new Rol(1, "usuario", "Usuario", "U", "127.0.0.1", "808093", sistema1));
+            rolRepo.save(new Rol(2, "admin", "Administrador", "A", "127.0.0.1", "808093",  sistema1));
+            rolRepo.save(new Rol(3, "lectura", "Solo tiene permisos de lectura", "L", "127.0.0.1", "808093", sistema1));
 
             Area areahum = areaRepo.save(new Area(new AreaId(211, 1, 1), (short) 7, "Coordinación y Consejo Técnico de Humanidades", "127.0.0.1", "808093"));
             areaRepo.save(new Area(new AreaId(211, 1, 2), (short) 7, "Casa Universitaria del Libro", "127.0.0.1", "808093"));

@@ -25,7 +25,7 @@ public class SistEstrategicoRepoTest {
     SistEstrategicoRepo sistEstrategicoRepo;
 
     @Test
-    public void testFindByID() {
+    void testFindByID() {
         logger.info("------------testFindByID");
         Optional<SistEstrategico> sistemaOpt = sistEstrategicoRepo.findById(1);
 
