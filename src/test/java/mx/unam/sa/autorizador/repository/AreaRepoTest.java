@@ -7,8 +7,8 @@ import java.util.Optional;
 import java.util.Set;
 import mx.unam.sa.autorizador.entities.Area;
 import mx.unam.sa.autorizador.entities.AreaId;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import org.junit.jupiter.api.Tag;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,33 +29,32 @@ public class AreaRepoTest {
 
     @Test
     void testFindByID() {
-        logger.info(" ------- testFindByID ");
+        logger.info("\u001B[32m"+"------------testFindByID" + "\u001B[0m");
+
         Optional<Area> area = areaRepo.findById(new AreaId(723, 1, 1));
 
         if (area.isPresent()) {
             logger.info(area.get().toString());
-        } else {
-            assertTrue(false);
-        }
+        } else fail();
     }
 
     @Test
     void testFindByAreaAndStatus() {
-        logger.info(" ------- testfindByAreaAndStatus ");
+        logger.info("\u001B[32m"+"------------testfindByAreaAndStatus" + "\u001B[0m");
         Set<Area> areas = areaRepo.findByAreaAndStatus(new AreaId(723, 1, 1), 1);
         logger.info(areas.toString());
     }
 
     @Test
     void testFindByDependencia() {
-        logger.info(" ------- testFindByDependencia ");
+        logger.info("\u001B[32m"+"------------testFindByDependencia" + "\u001B[0m");
         Set<Area> areas = areaRepo.findByDependencia(723);
         logger.info(areas.toString());
     }
 
     @Test
     void findByTitulares() {
-        logger.info(" ------- findByTitulares ");
+        logger.info("\u001B[32m"+"------------findByTitulares" + "\u001B[0m");
         Set<Area> areas = areaRepo.findByTitulares();
         logger.info(areas.toString());
     }

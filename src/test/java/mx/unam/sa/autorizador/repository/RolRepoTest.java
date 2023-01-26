@@ -37,7 +37,8 @@ public class RolRepoTest {
 
     @Test
     void testFindBySistema() {
-        logger.info("----testFindBySistema");
+
+        logger.info("\u001B[32m"+"------------testFindBySistema" + "\u001B[0m");
         //Recupera el sistema 1 para realizar la prueba
         Optional<SistEstrategico> sistemaOpt = sistEstrategicoRepo.findById(1);
 
@@ -51,7 +52,7 @@ public class RolRepoTest {
                 rolesDto.add(new RolDTO(rol.getIdRol(), rol.getRol(), rol.getDescripcion(), rol.getStatus()));
             }
 
-            System.out.println("rolesDTO" + rolesDto.toString());
+            System.out.println("rolesDTO" + rolesDto);
 
             ModelMapper modelMapper = new ModelMapper();
             Set<RolDTO> rolesDto2 = roles
@@ -59,7 +60,7 @@ public class RolRepoTest {
                     .map(rol -> modelMapper.map(rol, RolDTO.class))
                     .collect(Collectors.toSet());
 
-            System.out.println("rolesDTO2" + rolesDto2.toString());
+            System.out.println("rolesDTO2" + rolesDto2);
 
         }
 
