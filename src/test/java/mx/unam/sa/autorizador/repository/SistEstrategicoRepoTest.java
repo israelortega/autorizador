@@ -26,10 +26,12 @@ public class SistEstrategicoRepoTest {
 
     @Test
     void testFindByID() {
-        logger.info("------------testFindByID");
+        logger.info("\u001B[32m"+"------------testFindByID" + "\u001B[0m");
         Optional<SistEstrategico> sistemaOpt = sistEstrategicoRepo.findById(1);
 
-        if (sistemaOpt.isPresent()) {
+        if (sistemaOpt.isEmpty()) {
+            fail();
+        } else {
             logger.info(sistemaOpt.get().getRoles().toString());
         }
     }
