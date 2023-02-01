@@ -36,6 +36,13 @@ public class AutorizadorApplication {
         return (args) -> {
             usuarioRepo.save(new Usuario(10, "Juan", "Rodríguez", "Perez", "127.0.0.1", "808093"));
             usuarioRepo.save(new Usuario(20, "Jose", "Martínez", "González", "127.0.0.1", "808093"));
+            usuarioRepo.save(new Usuario(30, "Martha", "Palacios", "Velázquez", "127.0.0.1", "808093"));
+            usuarioRepo.save(new Usuario(40, "María", "Pozos", "Huerta", "127.0.0.1", "808093"));
+            usuarioRepo.save(new Usuario(50, "Gonzalo", "Jimenez", "Sánchez", "127.0.0.1", "808093"));
+            usuarioRepo.save(new Usuario(60, "Roberto", "Romo", "Hernández", "127.0.0.1", "808093"));
+            usuarioRepo.save(new Usuario(70, "Inéz", "Perera", "Núñez", "127.0.0.1", "808093"));
+            usuarioRepo.save(new Usuario(80, "Andrea", "Bonilla", "González", "127.0.0.1", "808093"));
+            usuarioRepo.save(new Usuario(90, "Martina", "Zaldívar", "Islas", "127.0.0.1", "808093"));
 
             SistEstrategico sistema1 = sistEstrategicoRepo.save(new SistEstrategico(1, "Sistema 1", "Sistema SA", "", new SimpleDateFormat("dd-MM-yyyy").parse("01-01-2020"), new SimpleDateFormat("dd-MM-yyyy").parse("31-12-2023"), "127.0.0.1", "808093"));
             sistEstrategicoRepo.save(new SistEstrategico(2, "Sistema 2", "Sistema de DGPe", "", null, null, "127.0.0.1", "808093"));

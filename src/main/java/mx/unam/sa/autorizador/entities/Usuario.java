@@ -10,6 +10,7 @@ import java.util.Date;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  *
@@ -19,6 +20,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @NoArgsConstructor
+@ToString
 @Table(name = "TUSUARIO", uniqueConstraints = { @UniqueConstraint(columnNames = { "vcNombre", "vcAp_Pat", "vcAp_Mat" }) })
 public class Usuario implements Serializable {
     private static final long serialVersionUID = 202301110L;

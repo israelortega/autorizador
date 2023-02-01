@@ -5,7 +5,9 @@ package mx.unam.sa.autorizador.repository;
  */
 
 
+import java.util.List;
 import mx.unam.sa.autorizador.entities.Usuario;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
