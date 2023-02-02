@@ -8,11 +8,13 @@ import mx.unam.sa.autorizador.entities.AreaId;
 import mx.unam.sa.autorizador.entities.Puesto;
 import mx.unam.sa.autorizador.entities.Rol;
 import mx.unam.sa.autorizador.entities.SistEstrategico;
+import mx.unam.sa.autorizador.entities.Subsistema;
 import mx.unam.sa.autorizador.entities.Usuario;
 import mx.unam.sa.autorizador.repository.AreaRepo;
 import mx.unam.sa.autorizador.repository.PuestoRepo;
 import mx.unam.sa.autorizador.repository.RolRepo;
 import mx.unam.sa.autorizador.repository.SistEstrategicoRepo;
+import mx.unam.sa.autorizador.repository.SubsistemaRepo;
 import mx.unam.sa.autorizador.repository.UsuarioRepo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -31,7 +33,8 @@ public class AutorizadorApplication {
             SistEstrategicoRepo sistEstrategicoRepo,
             RolRepo rolRepo,
             AreaRepo areaRepo,
-            PuestoRepo puestoRepo
+            PuestoRepo puestoRepo,
+            SubsistemaRepo subRepo
     ) {
         return (args) -> {
             usuarioRepo.save(new Usuario(10, "Juan", "Rodríguez", "Perez", "127.0.0.1", "808093"));
@@ -42,15 +45,18 @@ public class AutorizadorApplication {
             sistEstrategicoRepo.save(new SistEstrategico("Sistema ?", "Sitema de Obras", "", null, null, "127.0.0.1", "808093"));
 
             rolRepo.save(new Rol(1, "usuario", "Usuario", "U", "127.0.0.1", "808093", sistema1));
-            rolRepo.save(new Rol(2, "admin", "Administrador", "A", "127.0.0.1", "808093",  sistema1));
+            rolRepo.save(new Rol(2, "admin", "Administrador", "A", "127.0.0.1", "808093", sistema1));
             rolRepo.save(new Rol(3, "lectura", "Solo tiene permisos de lectura", "L", "127.0.0.1", "808093", sistema1));
 
-            Area areahum = areaRepo.save(new Area(new AreaId(211, 1, 1), (short) 7, "Coordinación y Consejo Técnico de Humanidades", "127.0.0.1", "808093"));
-            areaRepo.save(new Area(new AreaId(211, 1, 2), (short) 7, "Casa Universitaria del Libro", "127.0.0.1", "808093"));
-            Area areaPer = areaRepo.save(new Area(new AreaId(723, 1, 1), (short) 1, "Dirección General de Personal", "127.0.0.1", "808093"));
-            areaRepo.save(new Area(new AreaId(723, 2, 1), (short) 1, "Dirección General de Relaciones Laborales", "127.0.0.1", "808093"));
-            
-            Set <Puesto> puestos = new HashSet();
+            Subsistema admivo = subRepo.save(new Subsistema(Short.parseShort("1"), "Subsistema administrativo", "0.0.0.0", "869782"));
+            Subsistema acadHum = subRepo.save(new Subsistema(Short.parseShort("2"), "Subsistema academico-humanidades", "0.0.0.0", "869782"));
+
+            Area areahum = areaRepo.save(new Area(new AreaId(211, 1, 1), acadHum, "Coordinación y Consejo Técnico de Humanidades", "127.0.0.1", "808093"));
+            areaRepo.save(new Area(new AreaId(211, 1, 2), acadHum, "Casa Universitaria del Libro", "127.0.0.1", "808093"));
+            Area areaPer = areaRepo.save(new Area(new AreaId(723, 1, 1), admivo, "Dirección General de Personal", "127.0.0.1", "808093"));
+            areaRepo.save(new Area(new AreaId(723, 2, 1), admivo, "Dirección General de Relaciones Laborales", "127.0.0.1", "808093"));
+
+            Set<Puesto> puestos = new HashSet();
             Puesto puestTit = new Puesto(areaPer, "Titular", "Clave para el Director", "T", null, null, "127.0.0.1", "808093");
             puestos.add(puestTit);
             Puesto puestSec = new Puesto(areaPer, "Secretario", "Clave para el Secretario o Jefe de Unidad", "S", new SimpleDateFormat("dd-MM-yyyy").parse("01-01-2023"), new SimpleDateFormat("dd-MM-yyyy").parse("31-12-2023"), "127.0.0.1", "808093");
@@ -59,11 +65,9 @@ public class AutorizadorApplication {
             puestos.add(puestFirma);
             Puesto puestHum = new Puesto(areahum, "Titular", "Clave para el Director", "T", null, null, "127.0.0.1", "808093");
             puestos.add(puestHum);
-            
-            
+
             puestoRepo.saveAll(puestos);
-            
-            
+
         };
     }
 

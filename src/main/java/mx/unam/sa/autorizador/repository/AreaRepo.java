@@ -3,6 +3,7 @@
  */
 package mx.unam.sa.autorizador.repository;
 
+import java.util.List;
 import java.util.Set;
 import mx.unam.sa.autorizador.entities.Area;
 import mx.unam.sa.autorizador.entities.AreaId;
@@ -14,6 +15,9 @@ import org.springframework.data.jpa.repository.Query;
  * @author israel1971
  */
 public interface AreaRepo extends JpaRepository<Area, AreaId> {
+    
+    @Query("SELECT u FROM Area u WHERE u.subsistema.cveSubSist = ?1")
+    List<Area> findBySubsistema(Short cveSubSist);
 
     Set<Area> findByAreaAndStatus(AreaId areaID, Integer status);
 
