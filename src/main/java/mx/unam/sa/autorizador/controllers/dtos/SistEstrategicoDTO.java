@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.Set;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  *
@@ -16,6 +17,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@ToString
 public class SistEstrategicoDTO {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     Integer idSistema;

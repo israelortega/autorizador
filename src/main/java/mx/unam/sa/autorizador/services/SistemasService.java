@@ -3,6 +3,7 @@
  */
 package mx.unam.sa.autorizador.services;
 
+import java.util.List;
 import java.util.Optional;
 import mx.unam.sa.autorizador.controllers.dtos.SistEstrategicoDTO;
 import mx.unam.sa.autorizador.entities.SistEstrategico;
@@ -39,5 +40,9 @@ public class SistemasService {
         }
         
         return salida;
+    }
+    
+    public List<SistEstrategico> getAll(){
+        return sistEstrategicoRepo.findAll();
     }
 }
